@@ -1,0 +1,98 @@
+
+body {
+    background-color: #FAF8F1;         
+    color: #334443;                    
+    font-size: 20px;
+    font-family: "Helvetica", "Arial", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #34656D;
+    color: #FAF8F1;
+
+    text-align: center;
+    padding:30px;
+    
+}
+
+main{
+    background-color: #FAEAB1;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+ul{
+    list-style: disc;
+    padding-left: 35px;
+}
+
+ol{
+    list-style: decimal;
+    padding-left: 35px;
+}
+
+li{
+    margin-bottom: 10px;
+    
+}
+
+.hobbies{
+    margin-top: 50px;
+}
+
+a:link{
+    color: #34656D;
+}
+
+a:visited{
+    color: #7954be;
+ 
+}
+
+a:hover {
+    color: white;
+    background-color: #34656D;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+footer{
+    font-size: 1.5em;
+    background-color: #2E5258;
+    color: #FAF8F1;
+    text-align: center;
+    padding: 0px;
+    height: 75px;
+    line-height: 75px;
+}
+
+.card {
+    background-color: #FAEAB1;
+    padding: 20px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    /*box-shadow: 0 4px 8px rgba(0,0,0,0.2);*/
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+#Albums{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 1.2em;
+}
+
+.imgs{
+    background-color: #FAF8F1;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    
+}
+
