@@ -11,7 +11,6 @@ body {
 header {
     background-color: #34656D;
     color: #FAF8F1;
-
     text-align: center;
     padding:30px;
     
@@ -84,13 +83,17 @@ footer{
     justify-content: center;
     margin-top: 50px;
     font-size: 1.2em;
+    background-color: #FAF8F1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .imgs{
     background-color: #FAF8F1;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    padding: 20px;    
+    padding: 20px;
 }
 
 .img-container {
@@ -98,6 +101,13 @@ footer{
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
   padding: 22px;
+  
+}
+
+.img-container:hover{
+    transform: translate(-2px);
+    transition: transform 0.2s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
 
 .img-container img {
@@ -105,4 +115,19 @@ footer{
   border-radius: 10px;
 }
 
+#main_div{
+    background-color: #FAF8F1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    
+}
+/*
+#main_div:hover{
+    transform: translate(-2px);
+    transition: transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+
+}
+*/
 
