@@ -4,10 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function AvailableProducts(props) {
+
   return (
-    <>
-      <p>Hold on</p>
-    </>
+    <ul>
+      {props.products.map(p => (
+        <li key={p.name}>
+          <p>{p.name} - {p.price}€</p>
+          <button onClick={props.handlerAdd} >Add</button>
+        </li>
+      ))}
+    </ul>
   )
 }
 
@@ -16,6 +22,14 @@ function Cart(props) {
   return (
     <>
       <h3>Total: </h3>
+      <ol>
+        {props.items.map(i => (
+          <li key={"What do I put here lol"} >
+            <p>{i.name}</p>
+            <button onClick={() => props.handlerRemove(props.item)} ></button>
+          </li>
+        ))}
+      </ol>
     </>
   )
 }
@@ -38,15 +52,15 @@ function App() {
     }
   ]
 
-  [userItems, setUserItems] = useState([]);
+  const [userItems, setUserItems] = useState([]);
 
   const addItem = (newItem) => {
     const updatedItems = [...userItems, newItem];
     setUserItems(updatedItems);
   }
 
-  const removeItem = (id) => {
-    const updatedItems = `I'll filter this I guess? Based on the ${id} ofc`
+  const removeItem = (unwanted) => {
+    const updatedItems = userItems.filter(item => item !== unwanted);
     setUserItems(updatedItems);
   }
 
@@ -54,10 +68,10 @@ function App() {
     <>
       <h1>Welcome to our humble shop </h1>
       <h2>Here's the list of available products</h2>
-      <AvailableProducts products={products}/>
+      <AvailableProducts products={products} handlerAdd={addItem} />
 
       <h2>Your Cart:</h2>
-      <Cart items={userItems} handlerAdd={addItem} handlerRemove={removeItem}/>
+      <Cart items={userItems} handlerRemove={removeItem} />
     </>
   )
 }
