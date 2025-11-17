@@ -2,37 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
-function AvailableProducts(props) {
-
-  return (
-    <ul>
-      {props.products.map((p, index) => (
-        <li key={p.name}>
-          <p>{p.name} - {p.price}€</p>
-          <button onClick={() => props.handlerAdd(p)} data-testid={`add-${index}`}>Add</button>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
-function Cart(props) {
-
-  return (
-    <>
-      <h3>Total: </h3>
-      <ol>
-        {props.items.map((i, index) => (
-          <li key={index} data-testid={`cart-item-${index}`} >
-            <p>{i.name}</p>
-            <button onClick={() => props.handlerRemove(index)} ></button>
-          </li>
-        ))}
-      </ol>
-    </>
-  )
-}
+import Cart from './components/Cart.jsx'
+import AvailableProducts from './components/AvailableProducts.jsx'
 
 function App() {
   const products = [
@@ -58,16 +29,6 @@ function App() {
     const updatedItems = [...userItems, newItem];
     setUserItems(updatedItems);
   };
-
-  /*
-  ? Ask about behavior
-  const removeItem = (unwanted) => {
-    const updatedItems = userItems.filter((item, index) => {
-      console.log(index);
-      return item !== unwanted;
-    });
-    setUserItems(updatedItems);
-  }*/
 
   const removeItem = (unwantedId) => {
     const updatedItems = userItems.filter((_, index) =>  index !== unwantedId);
