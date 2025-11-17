@@ -7,10 +7,10 @@ function AvailableProducts(props) {
 
   return (
     <ul>
-      {props.products.map(p => (
+      {props.products.map((p, index) => (
         <li key={p.name}>
           <p>{p.name} - {p.price}€</p>
-          <button onClick={props.handlerAdd} >Add</button>
+          <button onClick={() => props.handlerAdd(p)} data-testid={`add-${index}`}>Add</button>
         </li>
       ))}
     </ul>
@@ -23,10 +23,10 @@ function Cart(props) {
     <>
       <h3>Total: </h3>
       <ol>
-        {props.items.map(i => (
+        {props.items.map((i, index) => (
           <li key={"What do I put here lol"} >
             <p>{i.name}</p>
-            <button onClick={() => props.handlerRemove(props.item)} ></button>
+            <button onClick={() => props.handlerRemove(i)} ></button>
           </li>
         ))}
       </ol>
