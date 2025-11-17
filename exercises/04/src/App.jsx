@@ -24,9 +24,9 @@ function Cart(props) {
       <h3>Total: </h3>
       <ol>
         {props.items.map((i, index) => (
-          <li key={"What do I put here lol"} >
+          <li key={index} data-testid={`cart-item-${index}`} >
             <p>{i.name}</p>
-            <button onClick={() => props.handlerRemove(i)} ></button>
+            <button onClick={() => props.handlerRemove(index)} ></button>
           </li>
         ))}
       </ol>
@@ -57,12 +57,22 @@ function App() {
   const addItem = (newItem) => {
     const updatedItems = [...userItems, newItem];
     setUserItems(updatedItems);
-  }
+  };
 
+  /*
+  ? Ask about behavior
   const removeItem = (unwanted) => {
-    const updatedItems = userItems.filter(item => item !== unwanted);
+    const updatedItems = userItems.filter((item, index) => {
+      console.log(index);
+      return item !== unwanted;
+    });
     setUserItems(updatedItems);
-  }
+  }*/
+
+  const removeItem = (unwantedId) => {
+    const updatedItems = userItems.filter((_, index) =>  index !== unwantedId);
+    setUserItems(updatedItems);
+  };
 
   return (
     <>
