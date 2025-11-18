@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Cart from './components/Cart.jsx'
 import AvailableProducts from './components/AvailableProducts.jsx'
