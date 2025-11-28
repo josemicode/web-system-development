@@ -2,20 +2,61 @@ import { Router } from "express";
 
 const bookRouter = Router();
 
+let books = [
+    {
+        id: 1,
+        title: "Book 1",
+        author: "Author 1",
+        description: "Description 1",
+        year: 2020
+    },
+    {
+        id: 2,
+        title: "Book 2",
+        author: "Author 2",
+        description: "Description 2",
+        year: 2021
+    },
+    {
+        id: 3,
+        title: "Book 3",
+        author: "Author 3",
+        description: "Description 3",
+        year: 2022
+    }
+];
+
 bookRouter.get("/", (_, res) => {
-    res.send("Books");
+    res.json(books);
 });
 
-bookRouter.get("/:id", (_, res) => {
-    res.send("Book");
+bookRouter.get("/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    const theBook = books.find(book => book.id === id);
+    if (theBook) {
+        res.json(theBook);
+    } else {
+        res.status(404).end();
+    }
 });
 
-bookRouter.post("/", (_, res) => {
-    res.send("Book");
+bookRouter.post("/", (req, res) => {
+    const maxId = books.length > 0 ? Math.max(...books.map(book => book.id)) : 0;
+    const newBook = {
+        id: maxId + 1,
+        title: req.body.title,
+        author: req.body.author,
+        description: req.body.description,
+        year: req.body.year
+    }
+    books.push(newBook);
+    res.status(201).json(newBook);
 });
 
-bookRouter.delete("/:id", (_, res) => {
-    res.send("Book");
+bookRouter.delete("/:id", (req, res) => {
+    const id = parseInt(req.params.id);
+    books = books.filter(book => book.id !== id);
+    res.status(204).end();
 });
 
 export default bookRouter;
