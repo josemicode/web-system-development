@@ -5,24 +5,24 @@ const bookRouter = Router();
 let books = [
     {
         id: 1,
-        title: "Book 1",
-        author: "Author 1",
-        description: "Description 1",
-        year: 2020
+        title: "The Stranger",
+        author: "Albert Camus",
+        description: "Maman died today. Or yesterday, maybe. I don't know.",
+        year: 1942
     },
     {
         id: 2,
-        title: "Book 2",
-        author: "Author 2",
-        description: "Description 2",
-        year: 2021
+        title: "The Trial",
+        author: "Franz Kafka",
+        description: "One is condemned not only in innocence but also in ignorance.",
+        year: 1925
     },
     {
         id: 3,
-        title: "Book 3",
-        author: "Author 3",
-        description: "Description 3",
-        year: 2022
+        title: "Brave New World",
+        author: "Aldous Huxley",
+        description: "Everyone belongs to everyone else.",
+        year: 1932
     }
 ];
 
