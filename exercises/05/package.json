@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch --env-file=.env index.js",
+    "lint": "eslint .",
     "test": "no testing yet :P"
   },
   "keywords": [
@@ -16,5 +17,9 @@
   "type": "module",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "eslint": "^9.39.1"
   }
 }
