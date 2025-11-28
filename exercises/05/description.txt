@@ -20,4 +20,5 @@ It must:
 - Store books in memory (no database)
 - Include status codes in responses
 - Include error handling
-- Serve a static file (index.html) at the root path
+- Validate input data when creating a new book (title/author required, description/year optional)
+- Serve a static file (index.html) at the root path using express.static middleware
