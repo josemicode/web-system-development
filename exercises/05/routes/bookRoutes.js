@@ -41,13 +41,28 @@ bookRouter.get("/:id", (req, res) => {
 });
 
 bookRouter.post("/", (req, res) => {
+    const { title, author, description, year } = req.body;
+
+    if (!title || typeof title !== 'string' ||
+        !author || typeof author !== 'string') {
+        return res.status(400).json({ error: "Invalid input. Title and author are required strings." });
+    }
+
+    if (description !== undefined && typeof description !== 'string') {
+        return res.status(400).json({ error: "Invalid input. Description must be a string." });
+    }
+
+    if (year !== undefined && typeof year !== 'number') {
+        return res.status(400).json({ error: "Invalid input. Year must be a number." });
+    }
+
     const maxId = books.length > 0 ? Math.max(...books.map(book => book.id)) : 0;
     const newBook = {
         id: maxId + 1,
-        title: req.body.title,
-        author: req.body.author,
-        description: req.body.description,
-        year: req.body.year
+        title,
+        author,
+        description,
+        year
     }
     books.push(newBook);
     res.status(201).json(newBook);
