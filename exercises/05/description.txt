@@ -1,0 +1,23 @@
+Description of the task:
+REST API to manage a list of books.
+
+The API should support the following operations:
+- GET /books -> full list of books
+- GET /books/:id -> book by id
+- POST /books -> create a new book
+- DELETE /books/:id -> delete a book by id
+
+Book data: {
+- id (string)
+- title (string)
+- author (string)
+- description (string)
+- year (number)
+}
+
+It must:
+- Use middlewares like express.json() or my own middleware
+- Store books in memory (no database)
+- Include status codes in responses
+- Include error handling
+- Serve a static file (index.html) at the root path
