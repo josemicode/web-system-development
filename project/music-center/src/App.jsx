@@ -1,15 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Outlet } from 'react-router-dom'; // Importante: Outlet
+import Navbar from './components/Navbar';
+import './App.css';
 
 function App() {
-
   return (
-    <>
-      <h1>Music Center</h1>
-    </>
+    <div className="app-layout">
+      <Navbar />
+      
+      <main className="main-content">
+        {/* Aquí se cargará HomePage o AddTrackPage según la URL */}
+        <Outlet />
+      </main>
+    </div>
   )
 }
 
-export default App
+export default App;
