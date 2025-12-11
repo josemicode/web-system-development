@@ -15,7 +15,7 @@ function AddTrackPage() {
       <TrackForm onTrackAdded={handleSuccess} />
       
       <button onClick={() => navigate('/')} style={{marginTop: '1rem', background: 'transparent', border: '1px solid #666'}}>
-        Cancelar y volver
+        Exit
       </button>
     </div>
   );
