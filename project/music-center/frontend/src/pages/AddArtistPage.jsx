@@ -4,14 +4,27 @@ import './AddTrackPage.css';
 
 function AddArtistPage() {
   const navigate = useNavigate();
+
+  const handleSuccess = () => {
+    alert("¡Artista creado con éxito!");
+    navigate('/');
+  };
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', paddingTop: '2rem' }}>
+    <div className="page-outer">
       <div className="page-container">
-        <center><h2>🎤 Nuevo Artista</h2></center>
-        <ArtistForm onArtistAdded={() => { alert('¡Artista Creado!'); navigate('/'); }} />
-        <button onClick={() => navigate('/')} className="cancel-btn">Cancelar</button>
+        <h2 className="page-title">🎤 Añadir Nuevo Artista 🎤</h2>
+
+        <div className="form-wrapper">
+          <ArtistForm onArtistAdded={handleSuccess} />
+        </div>
+
+        <button onClick={() => navigate('/')} className="cancel-btn">
+          Cancelar y volver
+        </button>
       </div>
     </div>
   );
 }
+
 export default AddArtistPage;

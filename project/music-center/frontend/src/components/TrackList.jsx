@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { getAllTracks } from '../services/trackService';
+import { Link } from 'react-router-dom'; // <--- IMPORTANTE: Para el enlace de editar
+import { getAllTracks, deleteTrack } from '../services/trackService';
 import './TrackList.css';
 
 function TrackList() {
@@ -7,20 +8,34 @@ function TrackList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Cargar canciones al inicio
   useEffect(() => {
-    const fetchTracks = async () => {
-      try {
-        const data = await getAllTracks();
-        setTracks(data);
-      } catch (err) {
-        setError('Error al cargar canciones.');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchTracks();
+    loadTracks();
   }, []);
+
+  const loadTracks = async () => {
+    try {
+      const data = await getAllTracks();
+      setTracks(data);
+    } catch (err) {
+      setError('Error al cargar canciones.');
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    if (!window.confirm("¿Seguro que quieres borrar esta canción?")) return;
+
+    try {
+      await deleteTrack(id);
+      // Actualizamos la lista visualmente filtrando la canción borrada
+      setTracks(prevTracks => prevTracks.filter(track => track.id !== id));
+    } catch (err) {
+      alert("Hubo un error al intentar borrar.");
+    }
+  };
 
   const formatDuration = (seconds) => {
     if (!seconds) return 'N/A';
@@ -29,18 +44,37 @@ function TrackList() {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  if (loading) return <p className="loading">Cargando tu música... 🎵</p>;
+  if (loading) return <p className="loading">Cargando música... 🎵</p>;
   if (error) return <p className="error">{error}</p>;
 
   return (
     <div className="track-list-container">
-
       <div className="track-grid">
         {tracks.map((track) => (
           <div key={track.id} className="track-card">
             <h3>{track.title}</h3>
             <p className="artist-name">🎤 {track.artist_name}</p>
-            <span className="duration">⏱️ {formatDuration(track.duration)}</span>
+
+            <div className="card-footer">
+              <div className="duration-wrapper">
+                <span className="duration">⏱️ {formatDuration(track.duration)}</span>
+              </div>
+
+              <div className="actions">
+                <Link to={`/edit-track/${track.id}`} className="edit-btn" title="Editar">
+                  ✏️
+                </Link>
+
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDelete(track.id)}
+                  title="Eliminar"
+                >
+                  🗑️
+                </button>
+              </div>
+            </div>
+
           </div>
         ))}
       </div>
