@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getAllTracks } from '../services/trackService';
+import { useNavigate } from 'react-router-dom';
+import { getAllTracks, deleteTrack } from '../services/trackService';
 import '../pages/AlbumDetailPage.css'; // Reusing the player-style CSS
 import '../components/ArtistList.css'; // General styles
 
 function TracksPage() {
+    const navigate = useNavigate();
     const [tracks, setTracks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [loading, setLoading] = useState(true);
@@ -34,6 +36,17 @@ function TracksPage() {
     const filteredTracks = tracks.filter(track =>
         track.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+    const handleDelete = async (id) => {
+        if (window.confirm("Are you sure you want to delete this track?")) {
+            try {
+                await deleteTrack(id);
+                setTracks(tracks.filter(t => t.id !== id));
+            } catch (err) {
+                alert("Error deleting track");
+            }
+        }
+    };
 
     if (loading) return <div className="page-container"><p className="loading">Loading tracks... 🎵</p></div>;
     if (error) return <div className="page-container"><p className="error">{error}</p></div>;
@@ -73,6 +86,10 @@ function TracksPage() {
                                 {track.artist_name && <span style={{ marginRight: '1rem', color: '#888', fontSize: '0.9rem' }}>{track.artist_name}</span>}
                                 {track.album_title && <span style={{ marginRight: '1rem', color: '#aaa', fontSize: '0.8rem', fontStyle: 'italic' }}>{track.album_title}</span>}
                                 <span className="track-duration">{formatDuration(track.duration)}</span>
+                                <div className="track-actions">
+                                    <button onClick={() => navigate(`/edit-track/${track.id}`)} className="icon-btn" title="Edit Track">✏️</button>
+                                    <button onClick={() => handleDelete(track.id)} className="icon-btn" title="Delete Track">🗑️</button>
+                                </div>
                                 <button className="play-btn">▶</button>
                             </li>
                         ))}

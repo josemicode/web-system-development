@@ -15,6 +15,7 @@ import SelectAlbumPage from './pages/SelectAlbumPage.jsx'
 import AddTrackToArtistPage from './pages/AddTrackToArtistPage.jsx'
 import AlbumsPage from './pages/AlbumsPage.jsx'
 import AlbumDetailPage from './pages/AlbumDetailPage.jsx'
+import EditAlbumPage from './pages/EditAlbumPage.jsx'
 import TracksPage from './pages/TracksPage.jsx'
 
 
@@ -36,6 +37,7 @@ const router = createBrowserRouter([
       { path: "artists/:artistId/albums/:albumId/add-track", element: <AddTrackToArtistPage /> },
       { path: "albums", element: <AlbumsPage /> },
       { path: "albums/:id", element: <AlbumDetailPage /> },
+      { path: "albums/edit/:id", element: <EditAlbumPage /> },
       { path: "tracks", element: <TracksPage /> }
     ]
   }

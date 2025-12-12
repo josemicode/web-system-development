@@ -21,7 +21,7 @@ function TrackForm({ onSubmit, initialData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.title || !formData.artist_name) return alert("Fill in the required fields");
+    if (!formData.title) return alert("Fill in the required fields");
 
     const submissionData = {
       ...formData,
@@ -47,18 +47,7 @@ function TrackForm({ onSubmit, initialData }) {
           />
         </div>
 
-        {/* GROUP 2: ARTIST */}
-        <div className="form-group">
-          <input
-            name="artist_name"
-            type="text"
-            placeholder="Artist name"
-            value={formData.artist_name}
-            onChange={handleChange}
-            className="form-input"
-            required
-          />
-        </div>
+
 
         {/* GROUP 3: DURATION */}
         <div className="form-group">
