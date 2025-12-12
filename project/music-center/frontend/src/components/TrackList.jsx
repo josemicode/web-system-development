@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; // <--- IMPORTANTE: Para el enlace de editar
+import { Link } from 'react-router-dom'; 
 import { getAllTracks, deleteTrack } from '../services/trackService';
 import './TrackList.css';
 
@@ -8,7 +8,6 @@ function TrackList() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Cargar canciones al inicio
   useEffect(() => {
     loadTracks();
   }, []);
@@ -30,7 +29,6 @@ function TrackList() {
 
     try {
       await deleteTrack(id);
-      // Actualizamos la lista visualmente filtrando la canción borrada
       setTracks(prevTracks => prevTracks.filter(track => track.id !== id));
     } catch (err) {
       alert("Hubo un error al intentar borrar.");
