@@ -8,7 +8,7 @@ function Navbar() {
         <a href="/">🎵 Music Center</a>
       </div>
       <ul className="navbar-links">
-        <li><a href="#">Songs</a></li>
+        <li><Link to="/tracks">Tracks</Link></li>
         <li><Link to="/albums">Albums</Link></li>
         <li><Link to="/artists">Artists</Link></li>
       </ul>
