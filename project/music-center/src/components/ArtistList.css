@@ -1,0 +1,30 @@
+.artist-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.artist-card {
+  text-align: center;
+  width: 150px;
+}
+
+.artist-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 90%;
+  border: 2px solid #000000;
+  margin-bottom: 10px;
+  transition: transform 0.3s;
+}
+
+.artist-photo:hover {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.artist-country {
+  color: #888;
+  font-size: 0.9rem;
+}
