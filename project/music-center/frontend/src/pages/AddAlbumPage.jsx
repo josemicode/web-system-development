@@ -1,10 +1,11 @@
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import AlbumForm from '../components/AlbumForm';
 import './AddTrackPage.css';
 
 function AddAlbumPage() {
   const navigate = useNavigate();
+  const { artistId } = useParams();
 
   const handleSuccess = () => {
     alert("¡Álbum creado con éxito!");
@@ -17,7 +18,7 @@ function AddAlbumPage() {
         <h2 className="page-title">💿 Añadir Nuevo Álbum 💿</h2>
 
         <div className="form-wrapper">
-          <AlbumForm onAlbumAdded={handleSuccess} />
+          <AlbumForm onAlbumAdded={handleSuccess} artistId={artistId} />
         </div>
 
         <button onClick={() => navigate('/')} className="cancel-btn">

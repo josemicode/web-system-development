@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import { getAllTracks, deleteTrack } from '../services/trackService';
 import './TrackList.css';
 
@@ -17,7 +17,7 @@ function TrackList() {
       const data = await getAllTracks();
       setTracks(data);
     } catch (err) {
-      setError('Error al cargar canciones.');
+      setError('Tracks loading error.');
       console.error(err);
     } finally {
       setLoading(false);
@@ -25,13 +25,13 @@ function TrackList() {
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm("¿Seguro que quieres borrar esta canción?")) return;
+    if (!window.confirm("Are you sure you want to delete this track?")) return;
 
     try {
       await deleteTrack(id);
       setTracks(prevTracks => prevTracks.filter(track => track.id !== id));
     } catch (err) {
-      alert("Hubo un error al intentar borrar.");
+      alert("Error deleting track.");
     }
   };
 
@@ -42,7 +42,7 @@ function TrackList() {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  if (loading) return <p className="loading">Cargando música... 🎵</p>;
+  if (loading) return <p className="loading">Loading tracks... 🎵</p>;
   if (error) return <p className="error">{error}</p>;
 
   return (
@@ -59,14 +59,14 @@ function TrackList() {
               </div>
 
               <div className="actions">
-                <Link to={`/edit-track/${track.id}`} className="edit-btn" title="Editar">
+                <Link to={`/edit-track/${track.id}`} className="edit-btn" title="Edit">
                   ✏️
                 </Link>
 
                 <button
                   className="delete-btn"
                   onClick={() => handleDelete(track.id)}
-                  title="Eliminar"
+                  title="Delete"
                 >
                   🗑️
                 </button>

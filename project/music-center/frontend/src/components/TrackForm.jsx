@@ -21,7 +21,7 @@ function TrackForm({ onSubmit, initialData }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.title || !formData.artist_name) return alert("Rellena los campos obligatorios");
+    if (!formData.title || !formData.artist_name) return alert("Fill in the required fields");
 
     onSubmit(formData);
   };
@@ -35,7 +35,7 @@ function TrackForm({ onSubmit, initialData }) {
           <input
             name="title"
             type="text"
-            placeholder="Título de la canción"
+            placeholder="Track title"
             value={formData.title}
             onChange={handleChange}
             className="form-input"
@@ -48,7 +48,7 @@ function TrackForm({ onSubmit, initialData }) {
           <input
             name="artist_name"
             type="text"
-            placeholder="Nombre del Artista"
+            placeholder="Artist name"
             value={formData.artist_name}
             onChange={handleChange}
             className="form-input"
@@ -62,7 +62,7 @@ function TrackForm({ onSubmit, initialData }) {
             name="duration"
             type="number"
             min="0"
-            placeholder="Duración (segundos)"
+            placeholder="Duration (seconds)"
             value={formData.duration}
             onChange={handleChange}
             className="form-input"
@@ -70,7 +70,7 @@ function TrackForm({ onSubmit, initialData }) {
         </div>
 
         <button type="submit" className="save-btn">
-          {initialData ? "Guardar Cambios" : "Crear Canción"}
+          {initialData ? "Update Track" : "Create Track"}
         </button>
       </form>
     </div>

@@ -12,7 +12,12 @@ export const getAllAlbums = async () => {
 
 export const createAlbum = async (albumData) => {
   try {
-    const response = await api.post('/albums', albumData);
+    const payload = {
+      title: albumData.title,
+      artist_id: albumData.artist ? parseInt(albumData.artist) : null,
+      release_date: albumData.year ? `${albumData.year}-01-01` : null,
+    };
+    const response = await api.post('/albums', payload);
     return response.data;
   } catch (error) {
     console.error("Error creating album:", error);

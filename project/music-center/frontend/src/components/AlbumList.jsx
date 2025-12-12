@@ -14,7 +14,7 @@ function AlbumList() {
         const data = await getAllAlbums();
         setAlbums(data);
       } catch (err) {
-        setError('Error al cargar álbumes.');
+        setError('Albums loading error.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -24,7 +24,7 @@ function AlbumList() {
   }, []);
 
 
-  if (loading) return <p className="loading">Cargando álbumes... 💿</p>;
+  if (loading) return <p className="loading">Loading albums... 💿</p>;
   if (error) return <p className="error">{error}</p>;
 
 

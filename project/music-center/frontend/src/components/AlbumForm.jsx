@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { createAlbum } from '../services/albumService';
-import './TrackForm.css'; 
+import './TrackForm.css';
 
-function AlbumForm({ onAlbumAdded }) {
-  const [formData, setFormData] = useState({ title: '', artist: '', year: '' });
+function AlbumForm({ onAlbumAdded, artistId }) {
+  const [formData, setFormData] = useState({ title: '', artist: artistId || '', year: '' });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -11,27 +11,27 @@ function AlbumForm({ onAlbumAdded }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.title || !formData.artist) return alert("Datos incompletos");
+    if (!formData.title || !formData.artist) return alert("Incomplete data");
 
     try {
       await createAlbum(formData);
       if (onAlbumAdded) onAlbumAdded();
     } catch (error) {
-      alert("Error al guardar");
+      alert("Saving Failure");
     }
   };
 
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit} className="track-form">
-        
+
         <div className="form-group">
           <input
             type="text"
             name="title"
-            placeholder="Título del Álbum"
+            placeholder="Album Title"
             className="form-input"
-            value={formData.title} 
+            value={formData.title}
             onChange={handleChange}
           />
         </div>
@@ -40,10 +40,12 @@ function AlbumForm({ onAlbumAdded }) {
           <input
             type="text"
             name="artist"
-            placeholder="Artista"
+            placeholder="Artist"
             className="form-input"
             value={formData.artist}
             onChange={handleChange}
+            readOnly={!!artistId}
+            style={artistId ? { backgroundColor: '#e0e0e0' } : {}}
           />
         </div>
 
@@ -51,7 +53,7 @@ function AlbumForm({ onAlbumAdded }) {
           <input
             type="number"
             name="year"
-            placeholder="Año"
+            placeholder="Year"
             className="form-input"
             value={formData.year}
             onChange={handleChange}
@@ -59,9 +61,9 @@ function AlbumForm({ onAlbumAdded }) {
         </div>
 
         <button type="submit" className="save-btn">
-          Crear Álbum
+          Save Album
         </button>
-        
+
       </form>
     </div>
   );

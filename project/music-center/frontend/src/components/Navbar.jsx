@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 
 function Navbar() {
@@ -7,9 +8,9 @@ function Navbar() {
         <a href="/">🎵 Music Center</a>
       </div>
       <ul className="navbar-links">
-        <li><a href="#">Canciones</a></li>
-        <li><a href="#">Álbumes</a></li>
-        <li><a href="#">Artistas</a></li>
+        <li><a href="#">Songs</a></li>
+        <li><a href="#">Albums</a></li>
+        <li><Link to="/artists">Artists</Link></li>
       </ul>
     </nav>
   );

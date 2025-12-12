@@ -5,8 +5,8 @@ import './ArtistList.css';
 function ArtistList() {
 
   const [artists, setArtists] = useState([]);
-  const [loading, setLoading] = useState(true); 
-  const [error, setError] = useState(null);     
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchArtists = async () => {
@@ -14,7 +14,7 @@ function ArtistList() {
         const data = await getAllArtists();
         setArtists(data);
       } catch (err) {
-        setError('Error al cargar artistas.');
+        setError('Artists loading error.');
         console.error(err);
       } finally {
         setLoading(false);
@@ -23,8 +23,8 @@ function ArtistList() {
     fetchArtists();
   }, []);
 
- 
-  if (loading) return <p className="loading">Cargando artistas... 🎤</p>;
+
+  if (loading) return <p className="loading">Loading artists... 🎤</p>;
   if (error) return <p className="error">{error}</p>;
 
   return (
