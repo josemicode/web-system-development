@@ -1,0 +1,128 @@
+.page-outer {
+  display: flex;
+  justify-content: center;
+  padding-top: 2rem;
+}
+
+
+.page-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 1rem;
+  padding: 2rem;
+  background-color: #1e1e1e;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid #333;
+  position: relative; 
+  box-sizing: border-box;
+  color: #fff;
+}
+
+
+.page-container, 
+.page-container * {
+  box-sizing: border-box;
+}
+
+
+.page-title {
+  text-align: center;
+  margin: 0 0 1.5rem 0;
+  color: #fff;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #646cff;
+  padding-bottom: 0.5rem;
+  display: block;
+}
+
+
+.form-wrapper {
+  margin-bottom: 1rem;
+}
+
+
+.track-form {
+  width: 100%;
+}
+
+
+.track-form .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+
+.track-form .form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+
+.track-form .col {
+  flex: 1 1 200px;
+  min-width: 150px;
+}
+
+
+.track-form input,
+.track-form textarea,
+.track-form select {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #121212;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+
+.track-form input:focus,
+.track-form textarea:focus,
+.track-form select:focus {
+  border-color: #646cff;
+  box-shadow: 0 0 0 3px rgba(100,108,255,0.08);
+}
+
+
+.track-form .save-btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  background-color: #646cff;
+  color: #fff;
+}
+
+
+.cancel-btn {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: transparent;
+  color: #aaa;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #777;
+}
+
+
+@media (max-width: 420px) {
+  .page-container {
+    padding: 1rem;
+  }
+}

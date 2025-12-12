@@ -40,7 +40,6 @@ function TrackForm({ onTrackAdded }) {
 
   return (
     <div className="form-container">
-      <h3>➕ Añadir Nueva Canción</h3>
       <form onSubmit={handleSubmit} className="track-form">
         <div className="form-group">
           <input
