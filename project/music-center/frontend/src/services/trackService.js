@@ -3,17 +3,17 @@ import api from './api';
 export const getAllTracks = async () => {
   try {
     const response = await api.get('/tracks');
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error fetching tracks:", error);
-    throw error; 
+    throw error;
   }
 };
 
 export const createTrack = async (trackData) => {
   try {
     const response = await api.post('/tracks', trackData);
-    return response.data; 
+    return response.data;
   } catch (error) {
     console.error("Error creating track:", error);
     throw error;
@@ -46,6 +46,16 @@ export const deleteTrack = async (id) => {
     return response.data;
   } catch (error) {
     console.error("Error deleting track:", error);
+    throw error;
+  }
+};
+
+export const getTracksByAlbumId = async (albumId) => {
+  try {
+    const response = await api.get(`/tracks?album_id=${albumId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching tracks for album ${albumId}:`, error);
     throw error;
   }
 };

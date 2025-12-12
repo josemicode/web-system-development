@@ -13,6 +13,8 @@ import ArtistsPage from './pages/ArtistsPage.jsx'
 import EditArtistPage from './pages/EditArtistPage.jsx'
 import SelectAlbumPage from './pages/SelectAlbumPage.jsx'
 import AddTrackToArtistPage from './pages/AddTrackToArtistPage.jsx'
+import AlbumsPage from './pages/AlbumsPage.jsx'
+import AlbumDetailPage from './pages/AlbumDetailPage.jsx'
 
 
 
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
       { path: "artists/edit/:id", element: <EditArtistPage /> },
       { path: "albums/add/:artistId", element: <AddAlbumPage /> },
       { path: "artists/:artistId/add-track/select-album", element: <SelectAlbumPage /> },
-      { path: "artists/:artistId/albums/:albumId/add-track", element: <AddTrackToArtistPage /> }
+      { path: "artists/:artistId/albums/:albumId/add-track", element: <AddTrackToArtistPage /> },
+      { path: "albums", element: <AlbumsPage /> },
+      { path: "albums/:id", element: <AlbumDetailPage /> }
     ]
   }
 ]);

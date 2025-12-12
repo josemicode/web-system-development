@@ -25,3 +25,13 @@ export const createAlbum = async (albumData) => {
     throw error;
   }
 };
+
+export const getAlbum = async (id) => {
+  try {
+    const response = await api.get(`/albums/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching album ${id}:`, error);
+    throw error;
+  }
+};
