@@ -19,8 +19,8 @@ function AddArtistPage() {
           <ArtistForm onArtistAdded={handleSuccess} />
         </div>
 
-        <button onClick={() => navigate('/')} className="cancel-btn">
-          Cancelar y volver
+        <button onClick={() => navigate('/artists')} className="cancel-btn">
+          Cancel
         </button>
       </div>
     </div>
