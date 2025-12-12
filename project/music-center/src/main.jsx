@@ -6,6 +6,8 @@ import './index.css'
 import App from './App.jsx'
 import HomePage from './Pages/HomePage.jsx'
 import AddTrackPage from './Pages/AddTrackPage.jsx'
+import AddAlbumPage from './pages/AddAlbumPage.jsx'
+import AddArtistPage from './pages/AddArtistPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -13,14 +15,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "/",       
-        element: <HomePage />,
-      },
-      {
-        path: "add-track", 
-        element: <AddTrackPage />,
-      }
+      { path: "/", element: <HomePage /> },
+      { path: "add-track", element: <AddTrackPage /> },
+      { path: "add-album", element: <AddAlbumPage /> },
+      { path: "add-artist", element: <AddArtistPage /> }
     ]
   }
 ]);
