@@ -1,8 +1,9 @@
 import api from './api';
 
-export const getAllAlbums = async () => {
+export const getAllAlbums = async (artistId = null) => {
   try {
-    const response = await api.get('/albums');
+    const url = artistId ? `/albums?artist_id=${artistId}` : '/albums';
+    const response = await api.get(url);
     return response.data;
   } catch (error) {
     console.error("Error fetching albums:", error);

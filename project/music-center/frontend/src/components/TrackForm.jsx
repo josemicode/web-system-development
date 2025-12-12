@@ -23,7 +23,11 @@ function TrackForm({ onSubmit, initialData }) {
     e.preventDefault();
     if (!formData.title || !formData.artist_name) return alert("Fill in the required fields");
 
-    onSubmit(formData);
+    const submissionData = {
+      ...formData,
+      duration: formData.duration ? parseInt(formData.duration) : null
+    };
+    onSubmit(submissionData);
   };
 
   return (

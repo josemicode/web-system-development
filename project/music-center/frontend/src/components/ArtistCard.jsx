@@ -14,6 +14,8 @@ function ArtistCard({ artist, onDelete }) {
             }
         } else if (action === 'add-album') {
             navigate(`/albums/add/${artist.id}`);
+        } else if (action === 'add-track') {
+            navigate(`/artists/${artist.id}/add-track/select-album`);
         }
         // Reset selection back to default "Actions"
         e.target.value = "";
@@ -32,6 +34,7 @@ function ArtistCard({ artist, onDelete }) {
                     <option value="update">✏️ Update</option>
                     <option value="delete">🗑️ Delete</option>
                     <option value="add-album">💿 Add Album</option>
+                    <option value="add-track">🎵 Add Track</option>
                 </select>
             </div>
         </div>
