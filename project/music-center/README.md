@@ -53,3 +53,12 @@ Start using the API by sending requests to `http://localhost:3000/api/<resource>
 
 The Frontend consumes the API through the `services` directory. It employs the `axios` library for HTTP requests.
 As you use the web application, you'll be triggering functions that format the data and call the methods defined by the mentioned services.
+
+Moreover, here's the `.env` file content (normally we wouldn't share this, but it is essential to communicate with the database):
+
+```
+PORT=3000
+DATABASE_URL=postgresql://music_center_user:f3KIkDkPEvkDVEHYqQAnDjuMnRiG84p3@dpg-d4s8eo7pm1nc73ak0f00-a.virginia-postgres.render.com/music_center?ssl=true
+```
+
+Just add this to the backend folder and you are set!
