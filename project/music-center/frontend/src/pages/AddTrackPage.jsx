@@ -9,24 +9,24 @@ function AddTrackPage() {
   const handleCreate = async (formData) => {
     try {
       await createTrack(formData);
-      alert("¡Canción guardada con éxito!");
+      alert("Track created successfully!");
       navigate('/');
     } catch (error) {
-      alert("Error al guardar la canción");
+      alert("Error creating track");
     }
   };
 
   return (
     <div className="page-outer">
       <div className="page-container">
-        <h2 className="page-title">🎵 Añadir Nueva Canción🎵 </h2>
+        <h2 className="page-title">🎵 Add New Track 🎵 </h2>
 
         <div className="form-wrapper">
           <TrackForm onSubmit={handleCreate} />
         </div>
 
         <button onClick={() => navigate('/')} className="cancel-btn">
-          Cancelar y volver
+          Cancel
         </button>
       </div>
     </div>

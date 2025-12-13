@@ -8,21 +8,21 @@ function AddAlbumPage() {
   const { artistId } = useParams();
 
   const handleSuccess = () => {
-    alert("¡Álbum creado con éxito!");
+    alert("Album created successfully!");
     navigate('/');
   };
 
   return (
     <div className="page-outer">
       <div className="page-container">
-        <h2 className="page-title">💿 Añadir Nuevo Álbum 💿</h2>
+        <h2 className="page-title">💿 Add New Album 💿</h2>
 
         <div className="form-wrapper">
           <AlbumForm onAlbumAdded={handleSuccess} artistId={artistId} />
         </div>
 
         <button onClick={() => navigate('/')} className="cancel-btn">
-          Cancelar y volver
+          Cancel
         </button>
       </div>
     </div>

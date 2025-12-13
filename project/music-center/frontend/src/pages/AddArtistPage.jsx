@@ -6,14 +6,14 @@ function AddArtistPage() {
   const navigate = useNavigate();
 
   const handleSuccess = () => {
-    alert("¡Artista creado con éxito!");
+    alert("Artist created successfully!");
     navigate('/');
   };
 
   return (
     <div className="page-outer">
       <div className="page-container">
-        <h2 className="page-title">🎤 Añadir Nuevo Artista 🎤</h2>
+        <h2 className="page-title">🎤 Add New Artist 🎤</h2>
 
         <div className="form-wrapper">
           <ArtistForm onArtistAdded={handleSuccess} />
